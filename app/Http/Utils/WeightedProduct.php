@@ -35,7 +35,7 @@ class WeightedProduct
         elseif ($persentaseKehadiran >= 80) $score = 2;
         else $score = 1;
 
-        if ($persentaseTerlambat > 20) $score -= 2;
+        if ($persentaseTerlambat > 20) $score <= 2 ? $score = 1 : $score -= 2;
         elseif ($persentaseTerlambat > 10) $score -= 1;
 
         return $score;
