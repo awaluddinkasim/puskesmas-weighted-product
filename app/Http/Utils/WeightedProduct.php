@@ -43,9 +43,9 @@ class WeightedProduct
 
     public function hitungPenangananPasien($jumlah)
     {
-        $max = User::all()->max('pasien_bulan_ini');
+        $max = User::all()->max('pasienBulanIni')->count();
 
-        if ($max == 0) {
+        if ($max == 0 || $jumlah == 0) {
             return 1;
         }
 

@@ -13,7 +13,7 @@ class ResultController extends Controller
     public function index(): View
     {
         return view('pages.admin.ranking.index', [
-            'hasil' => Evaluasi::orderBy('bobot')
+            'hasil' => Evaluasi::orderBy('bobot', 'desc')
                 ->where('created_at', '>=', Carbon::today()->startOfMonth())
                 ->where('created_at', '<=', Carbon::today()->endOfMonth())
                 ->get(),

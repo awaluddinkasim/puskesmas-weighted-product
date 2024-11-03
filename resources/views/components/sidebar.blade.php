@@ -6,20 +6,12 @@
         <div id="sidebar-menu">
 
             <div class="logo-box">
-                <a href="/" class="logo logo-light">
-                    <span class="logo-sm">
-                        <img src="{{ asset('assets/images/logo-sm.png') }}" alt="" height="22">
-                    </span>
-                    <span class="logo-lg">
-                        <img src="{{ asset('assets/images/logo-light.png') }}" alt="" height="24">
-                    </span>
-                </a>
                 <a href="/" class="logo logo-dark">
                     <span class="logo-sm">
-                        <img src="{{ asset('assets/images/logo-sm.png') }}" alt="" height="22">
+                        <img src="{{ asset('assets/images/logo.png') }}" alt="" height="22">
                     </span>
                     <span class="logo-lg">
-                        <img src="{{ asset('assets/images/logo-dark.png') }}" alt="" height="24">
+                        <img src="{{ asset('assets/images/logo.png') }}" alt="" height="24">
                     </span>
                 </a>
             </div>

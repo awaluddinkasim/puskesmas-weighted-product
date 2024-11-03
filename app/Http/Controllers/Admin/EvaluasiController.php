@@ -42,20 +42,18 @@ class EvaluasiController extends BaseController
             ->where('created_at', '<=', Carbon::today()->endOfMonth())
             ->first();
 
-        if ($evaluasi > 0) {
+        if ($evaluasi) {
             $evaluasi->delete();
         }
 
         $wp = new WeightedProduct();
 
         $data['kehadiran'] = $wp->hitungKehadiran($user->absensi);
-        $data['penanganan_pasien'] = $wp->hitungPenangananPasien($user->pasien_bulan_ini);
+        $data['penanganan_pasien'] = $wp->hitungPenangananPasien($user->pasienBulanIni->count());
 
         $data['bobot'] = $wp->hitungHasil($data);
 
         $data['user_id'] = $user->id;
-
-        // dd($data);
 
         Evaluasi::create($data);
 

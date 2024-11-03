@@ -1,7 +1,7 @@
 <x-layout title="Edit Perawat">
     <div class="row">
         <div class="col-md-6">
-
+            <img src="{{ asset('assets/images/healthcare.svg') }}" alt="" class="img-fluid">
         </div>
         <div class="col-md-6">
             <x-component.card title="Form Perawat">

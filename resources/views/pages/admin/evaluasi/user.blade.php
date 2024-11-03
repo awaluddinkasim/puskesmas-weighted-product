@@ -2,7 +2,19 @@
     <div class="row">
         <div class="col-md-5">
             <x-component.card :title="$user->nama">
+                <div class="text-center">
 
+                    <img src="{{ asset('assets/images/avatar.png') }}" alt="" class="rounded-circle w-50">
+
+                </div>
+                <h5>NIP</h5>
+                <p>{{ $user->nip }}</p>
+
+                <h5>Jenis Kelamin</h5>
+                <p>{{ $user->jk }}</p>
+
+                <h5>No. Telp</h5>
+                <p>{{ $user->no_telp }}</p>
             </x-component.card>
         </div>
         <div class="col-md-7">

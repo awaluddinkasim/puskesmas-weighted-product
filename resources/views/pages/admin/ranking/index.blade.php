@@ -10,7 +10,12 @@
                 @foreach ($hasil as $evaluasi)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $evaluasi->perawat->nama }}</td>
+                        <td>
+                            {{ $evaluasi->perawat->nama }}
+                            @if ($loop->iteration == 1)
+                                <span class="badge bg-success">Perawat Terbaik</span>
+                            @endif
+                        </td>
                         <td>{{ round($evaluasi->bobot, 3) }}</td>
                     </tr>
                 @endforeach
