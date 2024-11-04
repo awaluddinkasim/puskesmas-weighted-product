@@ -13,7 +13,6 @@ use App\Http\Controllers\BaseController;
 
 class EvaluasiController extends BaseController
 {
-
     public function index(): View
     {
         return view('pages.admin.evaluasi.index', [
@@ -50,7 +49,6 @@ class EvaluasiController extends BaseController
 
         $data['kehadiran'] = $wp->hitungKehadiran($user->absensi);
         $data['penanganan_pasien'] = $wp->hitungPenangananPasien($user->pasienBulanIni->count());
-
         $data['bobot'] = $wp->hitungHasil($data);
 
         $data['user_id'] = $user->id;

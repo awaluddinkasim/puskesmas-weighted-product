@@ -25,11 +25,21 @@
                             <h6 class="text-overflow m-0">Welcome !</h6>
                         </div>
 
-                        <!-- item-->
-                        <a href="#" class="dropdown-item notify-item">
+                        @if (auth('user')->check())
+                            <!-- item-->
+                        <a href="{{ route('account') }}" class="dropdown-item notify-item">
                             <i class="mdi mdi-account-circle-outline fs-16 align-middle"></i>
                             <span>My Account</span>
                         </a>
+                        @endif
+
+                        @if (auth('admin')->check())
+                            <!-- item-->
+                        <a href="{{ route('admin.account') }}" class="dropdown-item notify-item">
+                            <i class="mdi mdi-account-circle-outline fs-16 align-middle"></i>
+                            <span>My Account</span>
+                        </a>
+                        @endif
 
                         <!-- item-->
                         <form action="{{ route('logout') }}" method="post">
