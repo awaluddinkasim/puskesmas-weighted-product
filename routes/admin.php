@@ -3,7 +3,6 @@
 use App\Http\Controllers\Admin\AbsensiController;
 use App\Http\Controllers\Admin\AccountController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\AhpController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EvaluasiController;
