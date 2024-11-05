@@ -8,11 +8,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Controllers\BaseController;
+use App\Mail\PerawatMail;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends BaseController
 {
     public function index(): View
     {
+
+        Mail::to("awaluddinkasim7@gmail.com")->send(new PerawatMail());
+
         return view('pages.admin.perawat.index', [
             'users' => User::all(),
         ]);
@@ -30,6 +35,8 @@ class UserController extends BaseController
         ]);
 
         $data['password'] = Hash::make($data['password']);
+
+        Mail::to($data['email'])->send(new PerawatMail());
 
         User::create($data);
 
