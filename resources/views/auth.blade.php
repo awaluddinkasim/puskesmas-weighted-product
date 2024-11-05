@@ -41,7 +41,7 @@
                                         <div class="form-group mb-3">
                                             <label for="username" class="form-label">Email atau NIP</label>
                                             <input class="form-control" type="email" name="username" id="username"
-                                                placeholder="Masukkan email atau NIP" required>
+                                                placeholder="Masukkan email atau NIP" autofocus required>
                                         </div>
 
                                         <div class="form-group mb-3">

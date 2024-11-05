@@ -10,6 +10,7 @@ use App\Http\Utils\WeightedProduct;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Controllers\BaseController;
+use App\Models\Result;
 
 class EvaluasiController extends BaseController
 {
@@ -49,11 +50,19 @@ class EvaluasiController extends BaseController
 
         $data['kehadiran'] = $wp->hitungKehadiran($user->absensi);
         $data['penanganan_pasien'] = $wp->hitungPenangananPasien($user->pasienBulanIni->count());
-        $data['bobot'] = $wp->hitungHasil($data);
 
         $data['user_id'] = $user->id;
 
-        Evaluasi::create($data);
+        $evaluasi = Evaluasi::create($data);
+
+        unset($data['user_id']);
+
+        $evaluasi->result?->delete();
+
+        Result::create([
+            'evaluasi_id' => $evaluasi->id,
+            'bobot' => $wp->hitungHasil($data),
+        ]);
 
         return $this->redirect(route('admin.evaluasi'), [
             'status' => 'success',

@@ -20,7 +20,6 @@ return new class extends Migration
             $table->integer('sikap');
             $table->integer('kinerja');
             $table->integer('keterampilan_teknis');
-            $table->double('bobot');
             $table->timestamps();
         });
     }

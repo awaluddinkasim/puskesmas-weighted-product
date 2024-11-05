@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('results', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->float('bobot');
+            $table->foreignId('evaluasi_id')->constrained('evaluasi')->cascadeOnDelete();
+            $table->double('bobot');
             $table->timestamps();
         });
     }

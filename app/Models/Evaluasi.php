@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Evaluasi extends Model
 {
@@ -20,11 +21,15 @@ class Evaluasi extends Model
         'sikap',
         'kinerja',
         'keterampilan_teknis',
-        'bobot',
     ];
 
     public function perawat(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function result(): HasOne
+    {
+        return $this->hasOne(Result::class, 'evaluasi_id');
     }
 }
