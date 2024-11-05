@@ -2,6 +2,8 @@
 
 namespace App\Mail;
 
+use App\Models\Absensi;
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -13,12 +15,16 @@ class AbsenMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public User $user;
+    public Absensi $absensi;
+
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(User $user, $absensi)
     {
-        //
+        $this->user = $user;
+        $this->absensi = $absensi;
     }
 
     /**
@@ -27,7 +33,7 @@ class AbsenMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Absen Mail',
+            subject: 'Notifikasi Absensi',
         );
     }
 

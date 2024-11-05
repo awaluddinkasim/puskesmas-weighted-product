@@ -51,7 +51,7 @@ class AbsensiController extends BaseController
         }
         $absensi->save();
 
-        Mail::to($user->email)->send(new AbsenMail());
+        Mail::to($user->email)->send(new AbsenMail($user, $absensi));
 
         return $this->redirectBack([
             'status' => 'success',

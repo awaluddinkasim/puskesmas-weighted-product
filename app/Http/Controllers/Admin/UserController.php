@@ -15,9 +15,6 @@ class UserController extends BaseController
 {
     public function index(): View
     {
-
-        Mail::to("awaluddinkasim7@gmail.com")->send(new PerawatMail());
-
         return view('pages.admin.perawat.index', [
             'users' => User::all(),
         ]);
@@ -36,9 +33,9 @@ class UserController extends BaseController
 
         $data['password'] = Hash::make($data['password']);
 
-        Mail::to($data['email'])->send(new PerawatMail());
-
         User::create($data);
+
+        Mail::to($data['email'])->send(new PerawatMail(User::where('email', $data['email'])->first()));
 
         return $this->redirectBack([
             'status' => 'success',

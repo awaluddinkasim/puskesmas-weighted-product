@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -13,12 +14,14 @@ class PerawatMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public User $user;
+
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(User $user)
     {
-        //
+        $this->user = $user;
     }
 
     /**
@@ -27,7 +30,7 @@ class PerawatMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Perawat Mail',
+            subject: 'Pendaftaran Akun Puskesmas Namrole',
         );
     }
 
