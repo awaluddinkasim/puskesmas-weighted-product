@@ -58,10 +58,11 @@
                         <p>{{ $pasien->perawat->nama }}</p>
 
                         <h5>Keterangan Penanganan</h5>
-                        <p>{{ $pasien->penanganan->keterangan_penanganan }}</p>
+                        <p>{{ $pasien->penanganan->keterangan }}</p>
 
                         <h5>Lampiran</h5>
-                        <img src="{{ asset('files/' . $pasien->penanganan->lampiran) }}" alt="" class="w-100">
+                        <img src="{{ asset('lampiran/' . $pasien->penanganan->lampiran) }}" alt=""
+                            class="w-100 mb-3">
 
                         <h5>Tanggal Input Penanganan</h5>
                         <p>{{ Carbon\Carbon::parse($pasien->penanganan->created_at)->isoFormat('DD MMMM YYYY') }}</p>
