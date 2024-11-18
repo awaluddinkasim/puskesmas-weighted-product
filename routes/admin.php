@@ -32,6 +32,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
     });
 
     Route::get('/penanganan', [PenangananController::class, 'index'])->name('penanganan');
+    Route::get('/penanganan/{pasien}', [PenangananController::class, 'show'])->name('penanganan.show');
 
     Route::get('/absensi', [AbsensiController::class, 'index'])->name('absensi');
 

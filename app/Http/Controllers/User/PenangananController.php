@@ -34,9 +34,16 @@ class PenangananController extends BaseController
 
         $data['pasien_id'] = $pasien->id;
 
+        $lampiran = $request->file('lampiran');
+        $filename = time() . '.' . $lampiran->extension();
+
+        $lampiran->move(public_path('lampiran'), $filename);
+
+        $data['lampiran'] = $filename;
+
         Penanganan::create($data);
 
-        return $this->redirect(route('admin.penanganan.show', $pasien), [
+        return $this->redirect(route('penanganan.show', $pasien), [
             'status' => 'success',
             'message' => 'Input Penanganan Berhasil',
         ]);

@@ -88,6 +88,12 @@ return [
             'icon' => 'users',
         ],
         [
+            'active-segment' => 'penanganan',
+            'label' => 'Penanganan',
+            'route-name' => 'penanganan',
+            'icon' => 'check',
+        ],
+        [
             'active-segment' => 'profil-puskesmas',
             'label' => 'Profil Puskesmas',
             'route-name' => 'profil',
