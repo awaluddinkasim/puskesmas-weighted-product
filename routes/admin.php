@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EvaluasiController;
 use App\Http\Controllers\Admin\PasienController;
+use App\Http\Controllers\Admin\PenangananController;
 use App\Http\Controllers\Admin\ResultController;
 
 Route::group(['middleware' => 'auth:admin'], function () {
@@ -26,9 +27,11 @@ Route::group(['middleware' => 'auth:admin'], function () {
         Route::get('/list', [PasienController::class, 'index'])->name('list');
         Route::get('/create', [PasienController::class, 'create'])->name('create');
         Route::post('/store', [PasienController::class, 'store'])->name('store');
-        Route::get('/penanganan', [PasienController::class, 'penanganan'])->name('penanganan');
+        Route::get('/perawat', [PasienController::class, 'perawat'])->name('perawat');
         Route::get('/{pasien}', [PasienController::class, 'show'])->name('show');
     });
+
+    Route::get('/penanganan', [PenangananController::class, 'index'])->name('penanganan');
 
     Route::get('/absensi', [AbsensiController::class, 'index'])->name('absensi');
 

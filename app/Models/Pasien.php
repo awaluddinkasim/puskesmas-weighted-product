@@ -34,6 +34,11 @@ class Pasien extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    public function penanganan()
+    {
+        return $this->hasOne(Penanganan::class, 'pasien_id');
+    }
+
     public function usia(): Attribute
     {
         return Attribute::make(

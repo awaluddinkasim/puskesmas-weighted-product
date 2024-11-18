@@ -61,7 +61,7 @@ class PasienController extends BaseController
         ]);
     }
 
-    public function penanganan(): View
+    public function perawat(): View
     {
         return view('pages.admin.pasien.perawat', [
             'daftarPasien' => Pasien::all(),

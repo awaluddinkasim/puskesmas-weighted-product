@@ -16,25 +16,31 @@ return [
         ],
         [
             'active-segment' => 'pasien',
-            'label' => 'Penanganan Pasien',
+            'label' => 'Pasien',
             'submenu' => [
-                [
-                    'active-segment' => 'list',
-                    'label' => 'List Pasien',
-                    'route-name' => 'admin.pasien.list',
-                ],
                 [
                     'active-segment' => 'create',
                     'label' => 'Tambah Pasien',
                     'route-name' => 'admin.pasien.create',
                 ],
                 [
-                    'active-segment' => 'penanganan',
+                    'active-segment' => 'list',
+                    'label' => 'Daftar Pasien',
+                    'route-name' => 'admin.pasien.list',
+                ],
+                [
+                    'active-segment' => 'perawat',
                     'label' => 'Perawat Pasien',
-                    'route-name' => 'admin.pasien.penanganan',
+                    'route-name' => 'admin.pasien.perawat',
                 ],
             ],
             'icon' => 'users',
+        ],
+        [
+            'active-segment' => 'penanganan',
+            'label' => 'Penanganan Pasien',
+            'route-name' => 'admin.penanganan',
+            'icon' => 'check',
         ],
         [
             'active-segment' => 'absensi',
