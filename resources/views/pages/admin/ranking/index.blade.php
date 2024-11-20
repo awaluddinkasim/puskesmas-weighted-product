@@ -4,7 +4,8 @@
             <thead>
                 <th>#</th>
                 <th>Nama Perawat</th>
-                <th>Bobot</th>
+                <th>Vector S</th>
+                <th>Vector V</th>
             </thead>
             <tbody>
                 @foreach ($results as $result)
@@ -17,6 +18,7 @@
                             @endif
                         </td>
                         <td>{{ round($result->bobot, 3) }}</td>
+                        <td>{{ round($result->vectorV, 3) }}</td>
                     </tr>
                 @endforeach
             </tbody>

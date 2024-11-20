@@ -14,10 +14,9 @@ class ResultController extends Controller
     public function index(): View
     {
         return view('pages.admin.ranking.index', [
-            'results' => Result::orderBy('bobot', 'desc')
-                ->where('created_at', '>=', Carbon::today()->startOfMonth())
+            'results' => Result::where('created_at', '>=', Carbon::today()->startOfMonth())
                 ->where('created_at', '<=', Carbon::today()->endOfMonth())
-                ->get(),
+                ->get()->sortByDesc('vectorV'),
         ]);
     }
 }
