@@ -29,8 +29,11 @@
                             <div class="mb-0 border-0 p-md-5 p-lg-0 p-4">
                                 <div class="mb-4 p-0">
                                     <a href="/" class="auth-logo">
-                                        <img src="{{ asset('assets/images/logo.png') }}" alt="logo-dark"
-                                            class="mx-auto" height="28" />
+                                        <div class="d-flex align-items-center justify-content-start">
+                                            <img src="{{ asset('assets/images/logo.png') }}" alt="logo-dark"
+                                                height="56" />
+                                            <h2 class="ms-3 mb-0 text-dark">{{ config('app.name') }}</h2>
+                                        </div>
                                     </a>
                                 </div>
 
@@ -76,7 +79,7 @@
                     <div class="account-page-bg p-md-5 p-4">
                         <div class="text-center">
                             <div class="auth-image">
-                                <img src="{{ asset('assets/images/authentication.svg') }}" class="mx-auto img-fluid"
+                                <img src="{{ asset('assets/images/puskesmas.svg') }}" class="mx-auto img-fluid"
                                     alt="images">
                             </div>
                         </div>

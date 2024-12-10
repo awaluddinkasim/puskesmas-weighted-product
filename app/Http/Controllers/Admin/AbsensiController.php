@@ -12,17 +12,7 @@ class AbsensiController extends Controller
 {
     public function index(): View
     {
-        $dates = [];
-        $now = Carbon::now()->startOfMonth();
-        while ($now->lte(Carbon::now()->endOfMonth())) {
-            if ($now->dayName != 'Minggu') {
-                $dates[] = $now->format('d');
-            }
-            $now = $now->addDay();
-        }
-
         return view('pages.admin.absensi.index', [
-            'dates' => $dates,
             'users' => User::all(),
         ]);
     }
