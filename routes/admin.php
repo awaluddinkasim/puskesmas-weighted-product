@@ -41,6 +41,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::post('/evaluasi/{user}/store', [EvaluasiController::class, 'store'])->name('evaluasi.store');
 
     Route::get('/perawat-terbaik', [ResultController::class, 'index'])->name('result');
+    Route::get('/perawat-terbaik/export', [ResultController::class, 'export'])->name('result.export');
 
     Route::get('/account', [AccountController::class, 'index'])->name('account');
     Route::put('/account', [AccountController::class, 'update'])->name('account.update');

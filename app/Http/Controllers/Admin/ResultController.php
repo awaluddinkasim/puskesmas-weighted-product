@@ -8,6 +8,7 @@ use App\Models\Evaluasi;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ResultController extends Controller
 {
@@ -18,5 +19,16 @@ class ResultController extends Controller
                 ->where('created_at', '<=', Carbon::today()->endOfMonth())
                 ->get()->sortByDesc('vectorV'),
         ]);
+    }
+
+    public function export()
+    {
+        $pdf = Pdf::loadView('exports.pdf', [
+            'results' => Result::where('created_at', '>=', Carbon::today()->startOfMonth())
+                ->where('created_at', '<=', Carbon::today()->endOfMonth())
+                ->get()->sortByDesc('vectorV'),
+        ]);
+
+        return $pdf->stream('hasil-' . time() . '.pdf');
     }
 }

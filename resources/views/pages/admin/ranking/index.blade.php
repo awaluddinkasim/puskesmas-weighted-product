@@ -1,5 +1,9 @@
 <x-layout title="Perawat Terbaik">
     <x-component.card>
+        <button class="btn btn-danger mb-3" onclick="window.open('{{ route('admin.result.export') }}', '_blank')">
+            <i class="fa fa-file-pdf"></i> Export PDF
+        </button>
+
         <x-component.datatables id="ranking">
             <thead>
                 <th>#</th>
