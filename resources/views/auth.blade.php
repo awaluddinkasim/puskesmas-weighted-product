@@ -79,7 +79,7 @@
                     <div class="account-page-bg p-md-5 p-4">
                         <div class="text-center">
                             <div class="auth-image">
-                                <img src="{{ asset('assets/images/puskesmas.svg') }}" class="mx-auto img-fluid"
+                                <img src="{{ asset('assets/images/puskesmas.svg') }}" class="mx-auto" height="700"
                                     alt="images">
                             </div>
                         </div>
