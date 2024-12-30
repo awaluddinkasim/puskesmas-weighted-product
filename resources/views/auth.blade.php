@@ -100,9 +100,20 @@
     <script src="{{ asset('assets/libs/waypoints/lib/jquery.waypoints.min.js') }}"></script>
     <script src="{{ asset('assets/libs/jquery.counterup/jquery.counterup.min.js') }}"></script>
     <script src="{{ asset('assets/libs/feather-icons/feather.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/sweetalert2/sweetalert2.all.min.js') }}"></script>
 
     <!-- App js-->
     <script src="{{ asset('assets/js/app.js') }}"></script>
+
+    @if (Session::has('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal',
+                text: '{{ Session::get('error') }}',
+            });
+        </script>
+    @endif
 
 </body>
 
