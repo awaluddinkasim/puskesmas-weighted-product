@@ -41,4 +41,8 @@
             </div>
         </div>
     </div>
+
+    <div class="text-center">
+        <img src="{{ asset('assets/images/ruangan.svg') }}" alt="" class="w-75">
+    </div>
 </x-layout>

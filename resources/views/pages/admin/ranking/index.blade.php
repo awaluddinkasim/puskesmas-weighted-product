@@ -1,13 +1,14 @@
 <x-layout title="Perawat Terbaik">
+    @php
+        $bulan = Request::has('bulan') ? Request::get('bulan') : date('m');
+        $tahun = Request::has('tahun') ? Request::get('tahun') : date('Y');
+    @endphp
     <x-component.card>
         <div class="d-flex justify-content-between">
             <form class="row g-2">
                 <div class="col-auto">
                     <select class="form-select" name="bulan" required>
                         <option value="" hidden selected>Pilih</option>
-                        @php
-                            $bulan = Request::has('bulan') ? Request::get('bulan') : date('m');
-                        @endphp
                         @for ($i = 1; $i <= 12; $i++)
                             <option value="{{ $i }}" @if ($i == $bulan) selected @endif>
                                 {{ Carbon\Carbon::createFromDate(null, $i)->translatedFormat('F') }}
@@ -18,9 +19,6 @@
                 <div class="col-auto">
                     <select class="form-select" name="tahun" required>
                         <option value="" hidden selected>Pilih</option>
-                        @php
-                            $tahun = Request::has('tahun') ? Request::get('tahun') : date('Y');
-                        @endphp
                         @foreach ($years as $year)
                             <option value="{{ $year }}" @if ($year == $tahun) selected @endif>
                                 {{ $year }}</option>
@@ -32,7 +30,8 @@
                 </div>
             </form>
 
-            <button class="btn btn-danger mb-3" onclick="window.open('{{ route('admin.result.export') }}', '_blank')">
+            <button class="btn btn-danger mb-3"
+                onclick="window.open('{{ route('admin.result.export') }}?bulan={{ $bulan }}&tahun={{ $tahun }}', '_blank')">
                 <i class="fa fa-file-pdf"></i> Export PDF
             </button>
         </div>

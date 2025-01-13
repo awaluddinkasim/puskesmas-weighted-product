@@ -47,7 +47,7 @@
 
 <body>
     <h3>Perawat Terbaik Puskesmas Namrole</h3>
-    <h4>Periode {{ Carbon\Carbon::now()->isoFormat('MMMM YYYY') }}</h4>
+    <h4>Periode {{ Carbon\Carbon::create(Request::get('tahun'), Request::get('bulan'))->isoFormat('MMMM YYYY') }}</h4>
     <table>
         <thead>
             <tr>
