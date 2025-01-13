@@ -60,9 +60,7 @@ class User extends Authenticatable
 
     public function absensi(): HasMany
     {
-        return $this->hasMany(Absensi::class, 'user_id')
-            ->where('date', '>=', Carbon::today()->startOfMonth())
-            ->where('date', '<=', Carbon::today()->endOfMonth());
+        return $this->hasMany(Absensi::class, 'user_id');
     }
 
     public function absensiHariIni(): HasOne
@@ -73,8 +71,6 @@ class User extends Authenticatable
 
     public function cekAbsensi($tanggal): ?Absensi
     {
-        $date = Carbon::parse($tanggal . '-' . now()->month . '-' . now()->year);
-
-        return $this->absensi->where('date', $date->format('Y-m-d'))->first();
+        return $this->absensi->where('date', $tanggal)->first();
     }
 }
